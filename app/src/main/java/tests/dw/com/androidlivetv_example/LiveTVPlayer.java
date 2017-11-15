@@ -11,6 +11,7 @@ import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.LoadControl;
+import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.mediacodec.MediaCodecSelector;
 import com.google.android.exoplayer2.source.LoopingMediaSource;
 import com.google.android.exoplayer2.source.MediaSource;
@@ -29,7 +30,7 @@ import com.google.android.media.tv.companionlibrary.TvPlayer;
 public class LiveTVPlayer implements TvPlayer {
 
     private static final String TAG = LiveTVPlayer.class.getSimpleName();
-    private final ExoPlayer mPlayer;
+    private final SimpleExoPlayer mPlayer;
     private final Context context;
     private final MediaCodecVideoRenderer mediaCodecVideoRenderer;
     private Surface surface;
@@ -79,9 +80,7 @@ public class LiveTVPlayer implements TvPlayer {
     public void setSurface(Surface surface) {
         Log.d(TAG,"setSurface "+ C.MSG_SET_SURFACE);
         this.surface = surface;
-
-        ExoPlayer.ExoPlayerMessage exoPlayerMessage = new ExoPlayer.ExoPlayerMessage(mediaCodecVideoRenderer, C.MSG_SET_SURFACE,this.surface);
-        mPlayer.sendMessages(exoPlayerMessage);
+        mPlayer.setVideoSurface(surface);
 
     }
 

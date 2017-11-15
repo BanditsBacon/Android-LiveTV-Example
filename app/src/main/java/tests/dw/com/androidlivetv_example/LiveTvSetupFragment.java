@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 import com.google.android.media.tv.companionlibrary.ChannelSetupFragment;
 import com.google.android.media.tv.companionlibrary.EpgSyncJobService;
 
-import dw.com.androidtv.app.epg.LiveTvSnycServiceJob;
+import tests.dw.com.androidlivetv_example.LiveTvSnycServiceJob;
 
 public class LiveTvSetupFragment extends ChannelSetupFragment{
 
@@ -38,7 +38,7 @@ public class LiveTvSetupFragment extends ChannelSetupFragment{
         View fragmentView = super.onCreateView(inflater, container, savedInstanceState);
 
         //TODO add new Color and change Strings
-        setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.at_blue));
+        setBackgroundColor(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
         setBadge(getResources().getDrawable(R.drawable.ic_dw_logo));
         setChannelListVisibility(true);
         setTitle("Kein Title");
